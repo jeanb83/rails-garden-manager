@@ -1,33 +1,28 @@
-include ActionView::Helpers::AssetUrlHelper
-
 Garden.destroy_all if Rails.env.development?
 
-Garden.create!(
-    name: "French garden",
-    banner_url: image_path("french_garden.jpg")
-  )
-
-Garden.create!(
-    name: "My Cute Balcony",
-    banner_url: image_path("balcony_garden.jpg")
-  )
-
-Garden.create!(
-    name: "English garden",
-    banner_url: image_path("english_garden.jpg")
-  )
-
-Garden.create!(
-    name: "Flowered patio",
-    banner_url: image_url("patio_garden.jpg")
-  )
-
-Garden.create!(
-    name: "Garden in Japan",
-    banner_url: image_url("japanese_garden.jpg")
-  )
-
-Garden.create!(
-    name: "Walk among flowers",
-    banner_url: image_url("alley_garden.jpg")
-  )
+garden_names = [
+  "French garden",
+  "My Cute Balcony",
+  "English garden",
+  "Flowered patio",
+  "Garden in Japan",
+  "Walk among flowers"
+]
+6.times do
+  garden_request = RestClient.get("https://source.unsplash.com/1200x700/?garden")
+  garden = Garden.new(
+      name: garden_names.pop,
+      banner_url: garden_request.request.url
+    )
+  garden.save!
+  3.times do
+    plant_request = RestClient.get("https://source.unsplash.com/400x300/?flower")
+    plant = Plant.new(
+      name: Faker::FunnyName.name,
+      image_url: plant_request.request.url
+    )
+    plant.garden = garden
+    plant.save!
+    sleep(2)
+  end
+end
