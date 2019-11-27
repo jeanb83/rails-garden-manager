@@ -6,6 +6,30 @@
   </div>
 </div>
 
+<div class="how container">
+  <h2 class="text-center">How does it work?</h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="icon">
+        <%= image_tag "garden.svg" %>
+      </div>
+      <p class="text-center">Create your garden</p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="icon">
+        <%= image_tag "circles.svg" %>
+      </div>
+      <p class="text-center">Add your plants</p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="icon">
+        <%= image_tag "watering.svg" %>
+      </div>
+      <p class="text-center">Manage your daily activity</p>
+    </div>
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -27,7 +51,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Garden', new_garden_path %>
