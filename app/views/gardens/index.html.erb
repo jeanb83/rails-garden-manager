@@ -30,24 +30,21 @@
   </div>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Banner url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div>
+  <h2>Our community best gardens:</h2>
+  <ul>
     <% @gardens.each do |garden| %>
-      <tr>
-        <td><%= garden.name %></td>
-        <td><%= garden.banner_url %></td>
-        <td><%= link_to 'Show', garden %></td>
-        <td><%= link_to 'Edit', edit_garden_path(garden) %></td>
-        <td><%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li>
+        <p><%= garden.name %></p>
+        <p><%= garden.banner_url %></p>
+        <p><%= link_to 'Show', garden %></p>
+        <p><%= link_to 'Edit', edit_garden_path(garden) %></p>
+        <p><%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
+
+<div>
+  Footer
+</div>
