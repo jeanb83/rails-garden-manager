@@ -4,52 +4,21 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
+<div class="pt-30 container">
+  <div class="cards">
     <% @garden.plants.each do |plant| %>
-      <div class="col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= plant.image_url %>');">
-          <div class="card-description">
-            <h2><%= plant.name %></h2>
-          </div>
-          <%= link_to "+", plant_path(plant), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
-        </div>
-      </div>
+      <%= render "plant_card", plant: plant %>
     <% end %>
   </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <h4>Add a plant:</h4>
-      <%= simple_form_for [ @garden, @plant ] do |f| %>
-        <%= f.input :name, placeholder: "Palm tree" %>
-        <%= f.input :image_url, placeholder: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/philo.jpg" %>
-        <%= f.submit "Add", class: "btn btn-primary" %>
-      <% end %>
-      <button class="btn btn-secondary toggle-form">Toggle form</button>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="cards">
-      <% @plants.each do |plant| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.image_url %>)">
-          <%= plant.name %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="row justify-content-center">
+  <div class="pt-30 row justify-content-center">
     <div class="col-4">
-      <h4>Add a plant:</h4>
+      <h4 class="text-center">Add a plant</h4>
       <%= simple_form_for [ @garden, @plant ] do |f| %>
         <%= f.input :name, placeholder: "Palm tree" %>
         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
-        <%= f.submit "Add", class: "btn btn-primary" %>
+        <div class="form-actions">
+          <%= f.submit "Add", class: "btn btn-flat" %>
+        </div>
       <% end %>
     </div>
   </div>

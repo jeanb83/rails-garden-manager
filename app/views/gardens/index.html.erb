@@ -40,7 +40,7 @@
     <h2 class="text-center">Our community best gardens</h2>
     <div class="cards">
       <% @gardens.each do |garden| %>
-        <%= render "shared/card_trip", garden: garden %>
+        <%= render "garden_card", garden: garden %>
       <% end %>
     </div>
   </div>
