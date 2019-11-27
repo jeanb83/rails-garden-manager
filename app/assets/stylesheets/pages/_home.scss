@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
-.how {
-  h2 {
-    margin: 30px 0px;
-  }
+h2 {
+  margin: 60px 0px;
+}
 
+.how {
   p {
     font-size: 24px;
   }
@@ -16,7 +16,7 @@
   margin: 30px auto;
   padding: 50px;
   background-color: $green;
-  box-shadow: 0px 5px 20px #7b7b7b;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   justify-content: center;

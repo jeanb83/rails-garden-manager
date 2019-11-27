@@ -6,44 +6,36 @@
   </div>
 </div>
 
-<div class="how container">
+<div class="container">
   <h2 class="text-center">How does it work?</h2>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
+  <div class="row how">
+    <div class="col-xs-12 col-md-6 col-lg-4">
       <div class="icon">
         <%= image_tag "garden.svg" %>
       </div>
       <p class="text-center">Create your garden</p>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-md-6 col-lg-4">
       <div class="icon">
         <%= image_tag "circles.svg" %>
       </div>
       <p class="text-center">Add your plants</p>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-md-6 col-lg-4">
       <div class="icon">
         <%= image_tag "watering.svg" %>
       </div>
       <p class="text-center">Manage your daily activity</p>
     </div>
   </div>
+  <h2 class="text-center">Our community best gardens</h2>
+  <div class="cards">
+    <% @gardens.each do |garden| %>
+      <%= render "shared/card_trip", garden: garden %>
+    <% end %>
+  </div>
 </div>
 
-<div>
-  <h2>Our community best gardens:</h2>
-  <ul>
-    <% @gardens.each do |garden| %>
-      <li>
-        <p><%= garden.name %></p>
-        <p><%= garden.banner_url %></p>
-        <p><%= link_to 'Show', garden %></p>
-        <p><%= link_to 'Edit', edit_garden_path(garden) %></p>
-        <p><%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      </li>
-    <% end %>
-  </ul>
-</div>
 
 <div>
   Footer
