@@ -1,8 +1,33 @@
+include ActionView::Helpers::AssetUrlHelper
+
 Garden.destroy_all if Rails.env.development?
 
-6.times do
-  Garden.create!(
-    name: "#{Faker::Name.unique.name}'s garden",
-    banner_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"
+Garden.create!(
+    name: "French garden",
+    banner_url: image_path("french_garden.jpg")
   )
-end
+
+Garden.create!(
+    name: "My Cute Balcony",
+    banner_url: image_path("balcony_garden.jpg")
+  )
+
+Garden.create!(
+    name: "English garden",
+    banner_url: image_path("english_garden.jpg")
+  )
+
+Garden.create!(
+    name: "Flowered patio",
+    banner_url: image_url("patio_garden.jpg")
+  )
+
+Garden.create!(
+    name: "Garden in Japan",
+    banner_url: image_url("japanese_garden.jpg")
+  )
+
+Garden.create!(
+    name: "Walk among flowers",
+    banner_url: image_url("alley_garden.jpg")
+  )

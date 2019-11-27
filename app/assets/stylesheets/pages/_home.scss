@@ -1,12 +1,13 @@
-// Specific CSS for your home-page
-h2 {
-  margin: 60px 0px;
+.section {
+  margin-top: 60px;
 }
 
-.how {
-  p {
+.section > h2 {
+  margin-bottom: 60px;
+}
+
+.fs-24 {
     font-size: 24px;
-  }
 }
 
 .icon {
@@ -20,13 +21,13 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  &:hover {
-    background-color: $green-hover;
-    transition: .5s ease;
-  }
+.icon:hover {
+  background-color: $green-hover;
+  transition: .5s ease;
+}
 
-  img {
-    margin-top: 15px;
-  }
+.icon img {
+  margin-top: 15px;
 }
