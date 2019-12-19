@@ -1,4 +1,4 @@
-Garden.destroy_all if Rails.env.development?
+Garden.destroy_all
 
 garden_names = [
   "French garden",
