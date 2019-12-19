@@ -8,10 +8,11 @@ garden_names = [
   "Garden in Japan",
   "Walk among flowers"
 ]
-6.times do
+
+garden_names.each do |garden_name|
   garden_request = RestClient.get("https://source.unsplash.com/1200x700/?garden")
   garden = Garden.new(
-      name: garden_names.pop,
+      name: garden_name,
       banner_url: garden_request.request.url
     )
   garden.save!
